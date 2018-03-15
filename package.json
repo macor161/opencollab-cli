@@ -1,0 +1,29 @@
+{
+  "name": "opencollab-cli",
+  "version": "0.0.0",
+  "description": "OpenCollab Command Line Interface",
+  "private": true,
+  "bin": {
+    "opencollab-cli": "./bin/opencollab-cli"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "author": {
+    "name": "Mathew Cormier",
+    "email": "mathew.corm@gmail.com",
+    "url": "https://github.com/macor161"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macor161/opencollab-cli"
+  },
+  "license": "MIT",
+  "bugs": "https://github.com/macor161/opencollab-cli/issues",
+  "dependencies": {
+    "commander": "~2.0.0",
+    "autocmdr": "~0.0.7"
+  },
+  "devDependencies": {
+  }
+}
