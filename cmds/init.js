@@ -1,16 +1,18 @@
-/* init commander component
- * To use add require('../cmds/init.js')(program) to your commander.js based node executable before program.parse
- */
-'use strict';
+const opencollab = require('opencollab-lib')
 
+// TODO: Initialization options
 module.exports = function(program) {
 
 	program
-		.command('init')
+		.command('init <name> <description>')
 		.version('0.0.0')
 		.description('Initialize new OpenCollab repo')
-		.action(function (/* Args here */) {
-			// Your code goes here
-		});
+		.action(async (name, description, options) => {
+			try {
+				let result = await opencollab.init(process.cwd(), { name, description })
+			} catch(e) {
+				console.log('Error: ', e)
+			}
+		})
 
-};
+}
