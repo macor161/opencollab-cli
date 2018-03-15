@@ -21,9 +21,9 @@
   "license": "MIT",
   "bugs": "https://github.com/macor161/opencollab-cli/issues",
   "dependencies": {
+    "autocmdr": "~0.0.7",
     "commander": "~2.0.0",
-    "autocmdr": "~0.0.7"
+    "opencollab-lib": "0.0.2"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
