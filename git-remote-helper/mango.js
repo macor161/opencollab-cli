@@ -8,6 +8,7 @@ var ethUtil = require('ethereumjs-util')
 var snapshot = require('./snapshot.js')
 var repoABI = require('./MangoRepoABI.json')
 var ipfsAPI = require('ipfs-api')
+const config = require('../lib/config-loader')()
 
 var ipfs = ipfsAPI('localhost', '5002', {protocol: 'http'}) 
 
