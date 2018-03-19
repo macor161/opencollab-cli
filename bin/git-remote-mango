@@ -25,6 +25,6 @@ if (repo.protocol !== 'mango:') {
 
 pull(
   toPull(process.stdin),
-  gitRemoteHelper(new Mango(repo.hostname, config.account)),
+  gitRemoteHelper(new Mango(repo.hostname, config && config.account)),
   toPull(process.stdout)
 )
