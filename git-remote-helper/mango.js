@@ -275,16 +275,20 @@ Repo.prototype.update = function (readRefUpdates, readObjects, cb) {
           'old in repo: ' + ref
         ))
       }
-
-      if (update.new) {
-        // FIXME: make this async
-        self.repoContract.setRef(update.name, update.new, { gas: 5000000 })
-      } else {
-        // FIXME: make this async
-        self.repoContract.deleteRef(update.name, { gas: 500000 })
+      try {
+        if (update.new) {
+          // FIXME: make this async
+          self.repoContract.setRef(update.name, update.new, { gas: 5000000 })
+        } else {
+          // FIXME: make this async
+          self.repoContract.deleteRef(update.name, { gas: 500000 })
+        }
+      
+        readRefUpdates(null, next)
+      } catch(e) {
+        console.error('\n\n\n\n\n####    Access denied. Please use a maintainer account.    ### \n\n\n\n\n')
+        process.exit(1)        
       }
-
-      readRefUpdates(null, next)
     })
   }
 
@@ -295,3 +299,5 @@ Repo.prototype.update = function (readRefUpdates, readObjects, cb) {
     cb()
   })
 }
+
+

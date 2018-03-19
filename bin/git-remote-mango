@@ -5,6 +5,7 @@ var pull = require('pull-stream')
 var gitRemoteHelper = require('pull-git-remote-helper')
 var Mango = require('../git-remote-helper/mango')
 var url = require('url')
+const config = require('../lib/config-loader')()
 
 function die () {
   console.error.apply(console, arguments)
@@ -24,6 +25,6 @@ if (repo.protocol !== 'mango:') {
 
 pull(
   toPull(process.stdin),
-  gitRemoteHelper(new Mango(repo.hostname, repo.auth)),
+  gitRemoteHelper(new Mango(repo.hostname, config.account)),
   toPull(process.stdout)
 )
