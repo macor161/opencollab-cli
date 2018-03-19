@@ -1,5 +1,5 @@
-const Web3 = require('web3')
 const config = require('../lib/config-loader')()
+const getWeb3Accounts = require('../lib/get-web3-accounts')
 
 module.exports = function(program) {
 
@@ -9,9 +9,8 @@ module.exports = function(program) {
 		.description('List available web3 accounts')
 		.action(async function (/* Args here */) {
 			try {
-        const web3 = new Web3(new Web3.providers.HttpProvider(process.env['ETHEREUM_RPC_URL'] || 'http://localhost:8545'))
-        
-        const accounts = await getAccounts(web3)
+                
+        const accounts = await getWeb3Accounts()
 
         accounts.forEach((account, i) => 
           console.log(`#${i+1}: ${account}`)

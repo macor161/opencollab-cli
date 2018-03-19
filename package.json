@@ -32,6 +32,7 @@
     "autocmdr": "~0.0.7",
     "commander": "~2.0.0",
     "ethereumjs-util": "^4.4.1",
+    "inquirer": "^5.1.0",
     "ipfs-api": "^18.0.0",
     "multicb": "^1.2.1",
     "opencollab-lib": "0.0.2",
