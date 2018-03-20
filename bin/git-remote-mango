@@ -6,6 +6,7 @@ var gitRemoteHelper = require('pull-git-remote-helper')
 var Mango = require('../git-remote-helper/mango')
 var url = require('url')
 const config = require('../lib/config-loader')()
+const getWeb3Accounts = require('../lib/get-web3-accounts')
 
 function die () {
   console.error.apply(console, arguments)
@@ -23,8 +24,10 @@ if (repo.protocol !== 'mango:') {
   die('Invalid protocol')
 }
 
-pull(
-  toPull(process.stdin),
-  gitRemoteHelper(new Mango(repo.hostname, config && config.account)),
-  toPull(process.stdout)
-)
+getWeb3Accounts().then(accounts => {
+  pull(
+    toPull(process.stdin),
+    gitRemoteHelper(new Mango(repo.hostname, (config && config.account) || accounts[0])),
+    toPull(process.stdout)
+  )
+})
