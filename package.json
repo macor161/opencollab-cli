@@ -2,7 +2,7 @@
   "name": "opencollab-cli",
   "version": "0.0.1",
   "description": "OpenCollab Command Line Interface",
-  "private": true,
+  "private": false,
   "bin": {
     "opencollab": "./bin/opencollab-cli",
     "git-remote-mango": "./bin/git-remote-mango"
